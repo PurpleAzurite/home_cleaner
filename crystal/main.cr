@@ -3,10 +3,10 @@ require "option_parser"
 iname_list_path = Path.home.to_s + "/.config/clean/files.list"
 
 OptionParser.parse do |parser|
-   parser.banner = "CrystalClear"
+   parser.banner = "CrystalClear\nUsage: clean [options]"
 
    parser.on "-v", "--version", "Prints application version information" do
-     puts "CrystalClear v1.2"
+     puts "CrystalClear v1.3"
      exit
    end
 
