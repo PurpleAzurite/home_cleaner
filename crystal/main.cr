@@ -20,6 +20,11 @@ OptionParser.parse do |parser|
    end
 end
 
+if !File.exists?(iname_list_path)
+  puts "No list file found at: #{iname_list_path}\nAborting"
+  exit
+end
+
 iname_list = File.read_lines(iname_list_path)
 
 iname_list.each do |iname|
