@@ -9,6 +9,6 @@ make
 
 ### Building:
 ``` shell
-git clone https://github.com/PurpleAzurite/home_cleaner.git && cd ./home_cleaner
+git clone https://github.com/PurpleAzurite/home_cleaner.git && cd ./home_cleaner/crystal
 make
 ```
