@@ -6,7 +6,7 @@ OptionParser.parse do |parser|
    parser.banner = "CrystalClear"
 
    parser.on "-v", "--version", "Prints application version information" do
-     puts "CrystalClear 1.0"
+     puts "CrystalClear v1.1"
 	 exit
    end
 
