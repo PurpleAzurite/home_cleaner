@@ -1,5 +1,7 @@
 require "option_parser"
 
+iname_list_path = "/home/soda/.config/clean/files.list"
+
 OptionParser.parse do |parser|
    parser.banner = "CrystalClear"
 
@@ -12,9 +14,11 @@ OptionParser.parse do |parser|
      puts parser
      exit
    end
-end
 
-iname_list_path = "/home/soda/.config/clean/files.list"
+   parser.on "-l PATH", "--list=PATH", "Specifies the list file to use instead" do |path|
+     iname_list_path = path
+   end
+end
 
 iname_list = File.read_lines(iname_list_path)
 
