@@ -72,7 +72,6 @@ func main() {
         }
     }
 
-
 	list := GetList(list_path)
 	for _, path := range list {
 		CheckAndDelete(root_dir, path)
