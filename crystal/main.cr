@@ -18,6 +18,16 @@ OptionParser.parse do |parser|
    parser.on "-l PATH", "--list=PATH", "Specifies the list file to use instead" do |path|
      iname_list_path = path
    end
+
+   parser.missing_option do |flag|
+     STDERR.puts "#{flag} is missing required arugment"
+     exit
+   end
+
+   parser.invalid_option do |flag|
+     STDERR.puts "#{flag} is not recognized"
+     exit
+   end
 end
 
 if !File.exists?(iname_list_path)
