@@ -1,4 +1,5 @@
 require "option_parser"
+require "file_utils"
 
 iname_list_path = Path.home.to_s + "/.config/clean/files.list"
 
@@ -6,7 +7,7 @@ OptionParser.parse do |parser|
    parser.banner = "CrystalClear\nUsage: clean [options]"
 
    parser.on "-v", "--version", "Prints application version information" do
-     puts "CrystalClear v1.3"
+     puts "CrystalClear v1.3.1"
      exit
    end
 
@@ -38,7 +39,8 @@ end
 iname_list = File.read_lines(iname_list_path)
 
 iname_list.each do |iname|
-  if File.delete?(Path.home.to_s + '/' + iname)
-     puts "Deleted: " + iname
+  if File.exists?(Path.home.to_s + '/' + iname)
+    FileUtils.rm_rf(Path.home.to_s + '/' + iname)
+    puts "Removed: " + iname
   end
 end
