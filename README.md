@@ -5,6 +5,7 @@ I write this application as a first excercise when learning a new language becau
 
 Currently, there are implementations in:
 - Crystal
+- Go
 - Nim <3
 - Odin
-- Go
+- Python
