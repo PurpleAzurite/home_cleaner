@@ -4,6 +4,7 @@ This repository contains the "Clean" application written in a myriad of differen
 I write this application as a first excercise when learning a new language because it uses a good bunch of basic language functionality / features.
 
 Currently, there are implementations in:
+- C++
 - Crystal
 - Go
 - Nim <3
