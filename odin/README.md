@@ -1,5 +1,5 @@
 # Clean in Odin
-[Odin](odin-lang.org/)
+[Odin](https://odin-lang.org/)
 
 ### Dependencies:
 ``` shell
