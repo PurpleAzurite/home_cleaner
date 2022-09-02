@@ -5,7 +5,12 @@ import "core:os"
 import "core:strings"
 
 get_list :: proc(fp: string) -> []string {
-	content, _ := os.read_entire_file_from_filename(fp);
+	if !os.exists(fp) {
+		fmt.printf("List file not found: %s\n", fp)
+		return {}
+	}
+
+	content, e := os.read_entire_file_from_filename(fp);
 
 	return strings.split(string(content), "\n");
 }
@@ -32,12 +37,36 @@ check_and_remove :: proc(user_root: string, path: string) {
 	}
 }
 
+print_usage :: proc() {
+	fmt.printf("Usage: clean [options]\n\t-v, --version\tDisplay program version information\n\t-h, --help\tDisplay this message\n\t-l, --list <p>\tSpeciy alternative list file\n")
+}
+
 main :: proc() {
 	b := strings.builder_make();
 	user_root := os.get_env("USERPROFILE");
 	strings.write_string(&b, user_root);
 	strings.write_string(&b, "/.config/clean/files.list");
 	list_path := strings.to_string(b);
+
+	for i, idx in os.args[1:] {
+		if i == "-v" || i == "--version" {
+			fmt.println("Clean v1.0")
+			return
+
+		} else if i == "-h" || i == "--help" {
+			print_usage()
+			return
+
+		} else if i == "-l" || i == "--list" {
+			next_arg := os.args[idx + 2]
+			list_path = next_arg
+			fmt.printf("Using alternative list file: %s\n", next_arg)
+			break
+
+		} else {
+			fmt.printf("Unrecognized option: %s", i)
+		}
+	}
 
 	list := get_list(list_path);
 	for path in list {
