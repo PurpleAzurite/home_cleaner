@@ -1,5 +1,5 @@
 # Clean in Nim
-[Nim](nim-lang.org/)
+[Nim](https://nim-lang.org/)
 
 ### Dependencies:
 ``` shell
