@@ -1,5 +1,5 @@
 # CrystalClear: Clean in Crystal
-[Crystal](crystal-lang.org/)
+[Crystal](https://crystal-lang.org/)
 
 ### Dependencies:
 ``` shell
